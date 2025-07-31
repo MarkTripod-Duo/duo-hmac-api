@@ -1,0 +1,1 @@
+docker build -t duo-hmac-api .
