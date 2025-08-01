@@ -213,10 +213,8 @@ def validate_data(data: dict):
         return {"message": "missing 'method' element in the request body"}
     if 'path' not in data:
         return {"message": "missing 'path' element in the request body"}
-    if 'parameters' in data:
-        for key, value in data['parameters'].items():
-            if not isinstance(value, str):
-                return {"message": f"parameter '{key}' must be a string"}
+    if 'parameters' not in data:
+        return {"message": "missing 'parameter' element in the request body"}
     return None
 
 

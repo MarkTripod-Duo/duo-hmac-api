@@ -27,7 +27,4 @@ jobs:
 
     - name: Test HTTP access to container
       run: |
-        python3 /scripts/validate_container.py \
-          --ikey=${{ secrets.IKEY }} \
-          --skey=${{ secrets.SKEY }} \
-          --host=${{ secrets.HOST }}
+        python3 /scripts/validate_container.py
