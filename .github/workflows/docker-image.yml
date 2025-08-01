@@ -19,7 +19,7 @@ jobs:
           -d -p 8000:8000 \
           -e IKEY=${{ secrets.IKEY }} \
           -e SKEY=${{ secrets.SKEY }} \
-          -e HOST=${{ ecrets.HOST }} \
+          -e HOST=${{ secrets.HOST }} \
           --name duo-hmac duo-hmac-api
 
     - name: Pause to allow for startup
