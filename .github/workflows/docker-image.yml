@@ -27,4 +27,4 @@ jobs:
 
     - name: Test HTTP access to container
       run: |
-        python3 /scripts/validate_container.py
+        python3 scripts/validate_container.py
