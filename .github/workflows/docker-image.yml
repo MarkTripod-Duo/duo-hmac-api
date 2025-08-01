@@ -25,6 +25,9 @@ jobs:
     - name: Pause to allow for startup
       run: sleep 5
 
+    - name: Install httpx for Python
+      run: pip install httpx
+
     - name: Test HTTP access to container
       run: |
         python3 scripts/validate_container.py
