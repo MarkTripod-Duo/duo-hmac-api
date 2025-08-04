@@ -32,13 +32,21 @@ The response from the Duo HMAC micro service container will consist of a JSON ob
 'body' elements.
 
 For example:
-```json
-{'body': '{"custom_supported_browsers":{},"disabled_groups":[],"enabled_groups":[],"enabled_status":"disabled"}',
- 'headers': {'Authorization': 'Basic '
-                              'RElXOVhUMTRWSUlBSDNMNDI3STg6NDI4ZWJlMzUyOWUxMDQ3OWM3NmE2NDU3MGI3MjlkYTJiNjNiNDlkYTViNzQ1MTBhYTI1OWRmNTNiZDYxMjc3MGU1MGZkZDQxYWMyNjczYTUzNmIzZTA2NmJkM2MzNWEyNGIxNjdiZjZiYzEwNmNkOWZhMjA5NTc3YjI1Y2YxYzU=',
-             'Content-type': 'application/json',
-             'x-duo-date': 'Fri, 01 Aug 2025 13:20:12 -0000'},
- 'uri': 'api-731c6826.duosecurity.com/admin/v2/passport/config'}
+```
+{
+    'body': '{
+        "custom_supported_browsers":{},
+        "disabled_groups":[],
+        "enabled_groups":[],
+        "enabled_status":"disabled"
+        }',
+    'headers': {
+        'Authorization': 'Basic RElXOVhUMTRWSUlBSDNMNDI3STg6NDI4ZWJlMzUyOWUxMDQ3OWM3NmE2NDU3MGI3MjlkYTJiNjNiNDlkYTViNzQ1MTBhYTI1OWRmNTNiZDYxMjc3MGU1MGZkZDQxYWMyNjczYTUzNmIzZTA2NmJkM2MzNWEyNGIxNjdiZjZiYzEwNmNkOWZhMjA5NTc3YjI1Y2YxYzU=',
+        'Content-type': 'application/json',
+        'x-duo-date': 'Fri, 01 Aug 2025 13:20:12 -0000'
+        },
+    'uri': 'api-731c6826.duosecurity.com/admin/v2/passport/config'
+}
 ```
 
 The response values can then be used to directly interact with the Duo API.
