@@ -35,7 +35,7 @@ def main():
             }
 
     # Generate the Duo API Authorization data
-    print(f"Sending HTTP request to Duo HMAC micro service container [http://127.0.0.1:8000]...")
+    print(f"\nSending HTTP request to Duo HMAC micro service container [http://127.0.0.1:8000]...")
     resp: httpx.Response = client.post("http://127.0.0.1:8000", json=post_data)
 
     print(f"HTTP Response code from Duo HMAC micro service: {resp.status_code}")
@@ -51,12 +51,16 @@ def main():
         print(f"Duo API Headers: {resp_dict['headers']}")
 
         # Validate the generated Authorization data against the Duo Admin API
+        print(f"\n#### Sending HTTP request to Duo Admin API...")
         duo_api_resp = client.post(url=uri, json=body_json, headers=resp_dict['headers'])
+        print(f"HTTP Response code from Duo Admin API: {duo_api_resp.status_code}")
         if duo_api_resp.status_code != 200:
+            print(f"Unexpected HTTP response from Duo Admin API: {duo_api_resp.text}")
             sys.exit(-1)
         else:
             duo_api_resp_dict = duo_api_resp.json()
             if duo_api_resp_dict['stat'] == 'OK':
+                print(f"Duo Admin API Response: {duo_api_resp_dict}")
                 sys.exit(0)
     else:
         print(f"Unexpected HTTP response from Duo HMAC micro service: {resp.text}")
