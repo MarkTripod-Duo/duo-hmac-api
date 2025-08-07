@@ -9,11 +9,19 @@ HTTP header value that is required for each interaction with Cisco Duo public AP
 
 TBD
 
+## Installation
+
+Clone the repository and build the Docker image.
+```shell
+# git clone https://github.com/MarkTripod-Duo/duo-hmac-api.git
+# cd duo-hmac-api
+# docker build -t duo-hmac-api .
+```
+
 ## Usage
 
 ```shell
-docker run -d -p 8000:8000 -e IKEY=<Duo API IKEY> -e SKEY=<Duo API SKEY> \
-          -e HOST=<Duo API Hostname> --name duo-hmac duo-hmac-api
+# docker run -d -p 8000:8000 -e IKEY=<Duo API IKEY> -e SKEY=<Duo API SKEY> -e HOST=<Duo API Hostname> --name duo-hmac duo-hmac-api
 ```
 
 ### Example
@@ -50,3 +58,7 @@ For example:
 ```
 
 The response values can then be used to directly interact with the Duo API.
+
+## Testing
+
+TBD
