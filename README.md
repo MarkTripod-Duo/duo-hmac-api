@@ -7,7 +7,11 @@ HTTP header value that is required for each interaction with Cisco Duo public AP
 
 ## Requirements
 
-TBD
+* [Docker](https://www.docker.com/)
+* [Python 3.x](https://www.python.org/)
+
+### Optional (Development)
+* [HTTPX](https://www.python-httpx.org/) Python library
 
 ## Installation
 
@@ -36,7 +40,7 @@ contain a 'header' element.
 'parameters' - the Duo API parameters that will be included in the request to the Duo API. (Should be a list of 
 name/value pairs or a JSON object)
 
-The response from the Duo HMAC micro service container will consist of a JSON object with 'uri', 'headers', and 
+The response from the Duo HMAC microservice container will consist of a JSON object with 'uri', 'headers', and 
 'body' elements.
 
 For example:
@@ -61,4 +65,26 @@ The response values can then be used to directly interact with the Duo API.
 
 ## Testing
 
-TBD
+To perform a manual test of the Duo HMAC microservice container, a simple Python script has been provided in the `scripts/` folder.
+
+```shell
+# cd scripts
+# python3 validate_container_verbose.py
+
+Sending HTTP request to Duo HMAC micro service container [http://127.0.0.1:8000]...
+HTTP Response code from Duo HMAC micro service: 200
+Duo API URI: https://api-xxxxxxxx.duosecurity.com/admin/v2/passport/config
+Duo API Body: {'custom_supported_browsers': {}, 'disabled_groups': [], 'enabled_groups': [], 'enabled_status': 'disabled'}
+Duo API Headers: {'Authorization': 'Basic RElXOVhUMTRWSUlBSDNMNDI3STg6YzJhYjA1ZTQ0Yzg0NmEwMTk0NDM5MTlkNThkZTNjMTk2YTRiOGJiMWUzYTU0MTMzZmI3YTM1NWNmN2E4ZjNiMDgzNWJkNWE3MzMxMTQ3ZDM1YjgxODYwN2Y4ZmVjN2FjMzg2YjE3ZjhmMjI0ZDIyNTFhY2Y3OTU5N2JkZjM3MDE=', 'Content-type': 'application/json'}
+
+#### Sending HTTP request to Duo Admin API...
+HTTP Response code from Duo Admin API: 200
+Duo Admin API Response: {'response': '', 'stat': 'OK'}
+#
+```
+
+Additional testing can be performed by using the `validate_container_verbose.py` script as a model for customized testing needs.
+
+## Issues
+
+Issues can be reported via the [GitHub Issues](https://github.com/MarkTripod-Duo/duo-hmac-api/issues) page.
